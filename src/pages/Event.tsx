@@ -4,6 +4,8 @@ import { Sidebar } from '../components/Sidebar';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import { useEffect } from 'react';
+import Footer from '../components/Footer';
+import { Loading } from '../components/Loading';
 
 const GET_FIRST_LESSON_SLUG = gql`
   query MyQuery {
@@ -35,11 +37,13 @@ export const Event = () => {
 
   return (
     <div className="flex flex-col ">
-      <Header />
+      <Header mobileMenu={<Sidebar />} />
       <main className="flex flex-1 min-h-screen">
-        {slug ? <Video lessonSlug={slug} /> : <div className="flex-1" />}
-        <Sidebar />
+        {slug ? <Video lessonSlug={slug} /> : <Loading />}
+
+        <Sidebar classesCSS="hidden sm:block" />
       </main>
+      <Footer />
     </div>
   );
 };

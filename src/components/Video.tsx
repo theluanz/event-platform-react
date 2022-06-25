@@ -2,21 +2,11 @@ import { CaretRight, DiscordLogo, FileArrowDown, Lightning } from 'phosphor-reac
 import { DefaultUi, Player, Youtube } from '@vime/react';
 import { gql, useQuery } from '@apollo/client';
 import '@vime/core/themes/default.css';
+import { Loading } from './Loading';
+import { useNavigate } from 'react-router-dom';
 
 interface VideoProps {
   lessonSlug: string | null;
-}
-const GET_FIRST_LESSON = gql`
-  query GetFirstLesson {
-    lessons {
-      slug
-    }
-  }
-`;
-interface GetFirstLessonResponse {
-  lessons: {
-    slug: string;
-  };
 }
 
 const GET_LESSON_BY_SLUG_QUERY = gql`
@@ -50,16 +40,15 @@ interface GetLessonBySlugResponse {
 }
 
 export const Video = (props: VideoProps) => {
-  const { data } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG_QUERY, {
+  const navigate = useNavigate();
+  const { data, error } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG_QUERY, {
     variables: {
       slug: props.lessonSlug,
     },
   });
-
   if (!data) {
-    return <div className="flex-1">Loading...</div>;
+    return <Loading />;
   }
-
   return (
     <section className="flex-1">
       <div className="bg-black flex justify-center">
