@@ -16,7 +16,7 @@
 ## Funcionalidades
 - Cadastro de alunos via GraphQl
 - Visualizar aulas disponíveis
-- Redirecionamento caso a aula ou link seja inválido
+- Redirecionamento caso a aula ou link sejam inválidos
 - Loading
 - Versão desktop e Mobile
 - Bloquear acesso a aulas ainda não disponibilizadas
