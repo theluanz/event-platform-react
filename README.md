@@ -13,6 +13,14 @@
 -  Apollo Client and Graphql Codegen
 -  Vite
 
+## Funcionalidades
+- Cadastro de alunos via GraphQl
+- Visualizar aulas disponíveis
+- Redirecionamento caso a aula ou link seja inválido
+- Loading
+- Versão desktop e Mobile
+- Bloquear acesso a aulas ainda não disponibilizadas
+
 ## ✨ Descrição
 
 Trata-se de uma plataforma de eventos com a inscrição dos alunos e a disponibilização dos conteúdos conforme uma data programada. As aulas podem ser tanto lives quanto aulas práticas gravadas.
@@ -20,8 +28,14 @@ Trata-se de uma plataforma de eventos com a inscrição dos alunos e a disponibi
 O projeto foi desenvolvido durante a o "Ignite Lab - React" da Rocketseat.
 
 ## 🌟 Preview
+- Confira abaixo o preview da versão Desktop
+
 <img height='300' src=".github/desktop-preview.gif" alt="Preview da versão desktop">
-<img height='300' src=".github/mobile-preview.gif" alt="Preview da versão mobile">
+
+- Confira abaixo o preview da versão Desktop
+
+<img height='400' src=".github/mobile-preview.gif" alt="Preview da versão mobile">
+</p>
 
 ## 💻 Como instalar e rodar o projeto
 
