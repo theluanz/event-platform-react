@@ -25,8 +25,8 @@ export const Subscribe = () => {
 
   return (
     <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col items-center">
-      <div className="w-full max-w-[1100px] flex items-center justify-center mt-20 mx-auto flex-col sm:flex-row sm:justify-between">
-        <div className="sm:max-w-[640px] text-center mx-auto flex items-center flex-col sm:items-start sm:flex-auto sm:text-left">
+      <div className="w-full max-w-[1100px] flex items-center justify-center mt-20 mx-auto flex-col md:flex-row md:justify-between">
+        <div className="md:max-w-[640px] text-center mx-auto flex items-center flex-col md:items-start md:flex-auto md:text-left px-6 md:px-0">
           <Logo />
           <h1 className="mt-8 text-[2.5rem] leading-tight">
             Construa uma <strong className="text-blue-500"> aplicação completa</strong>, do zero,
@@ -38,7 +38,7 @@ export const Subscribe = () => {
           </p>
         </div>
 
-        <div className="p-8 bg-gray-700 border border-gray-500 rounded w-full mt-10 sm:mt-0 sm:w-auto ">
+        <div className="p-8 bg-gray-700 border border-gray-500 rounded w-full mt-10 md:mt-0 md:w-auto ">
           <strong className="text-2xl mb-6 block">Inscreva-se gratuitamente</strong>
 
           <form onSubmit={handleSubscribe} className="flex flex-col gap-2 w-full">
@@ -68,7 +68,7 @@ export const Subscribe = () => {
 
       <img
         src="/src/assets/code-mockup.png"
-        className=" mt-2  mb-4 sm:mt-10"
+        className=" px-6 md:px-0 mt-2  mb-4 md:mt-10"
         alt="Imagem do Visual Studio Code com uma implementação de um código React"
       />
       <Footer />

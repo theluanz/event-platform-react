@@ -41,7 +41,7 @@ export const Event = () => {
       <main className="flex flex-1 min-h-screen">
         {slug ? <Video lessonSlug={slug} /> : <Loading />}
 
-        <Sidebar classesCSS="hidden sm:block" />
+        <Sidebar classesCSS="hidden md:block" />
       </main>
       <Footer />
     </div>

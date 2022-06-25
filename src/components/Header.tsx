@@ -10,9 +10,9 @@ export const Header = (props: HeaderProps) => {
   const [openMobileMenu, setOpenMobileMenu] = React.useState(false);
 
   return (
-    <header className="w-full py-5 flex items-center justify-between sm:justify-center px-6 bg-gray-700 border-b border-gray-600">
+    <header className="w-full py-5 flex items-center justify-between md:justify-center px-6 bg-gray-700 border-b border-gray-600">
       <Logo />
-      <div className="block sm:hidden ">
+      <div className="block md:hidden ">
         <button
           className="flex items-center gap-2"
           onClick={() => setOpenMobileMenu(!openMobileMenu)}>
@@ -24,7 +24,7 @@ export const Header = (props: HeaderProps) => {
           )}
         </button>
         {openMobileMenu && (
-          <div className="absolute w-full top-[4.7rem] left-0 bg-green-400 mx-auto">
+          <div className="absolute w-full top-[4.7rem] left-0 bg-green-400 mx-auto z-50">
             {props.mobileMenu}
           </div>
         )}

@@ -52,7 +52,7 @@ export const Video = (props: VideoProps) => {
   return (
     <section className="flex-1">
       <div className="bg-black flex justify-center">
-        <div className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video">
+        <div className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video z-0">
           <Player>
             <Youtube videoId={data.lesson.videoId} />
             <DefaultUi />
@@ -61,7 +61,7 @@ export const Video = (props: VideoProps) => {
       </div>
 
       <section className="p-8 max-w-[1100px] mx-auto">
-        <div className="flex items-start gap-16">
+        <div className="flex flex-col md:flex-row items-start gap-8 md:gap-16">
           <header className="flex-1">
             <h1 className="text-2xl font-bold">{data.lesson.title}</h1>
             <p className="mt-4 text-gray-200 leading-relaxed">{data.lesson.description}</p>
@@ -78,7 +78,7 @@ export const Video = (props: VideoProps) => {
             </div>
           </header>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 w-full md:w-auto">
             <a
               href="https://discord.com"
               className="p-4 text-sm bg-green-500 hover:bg-green-700 flex items-center font-bold uppercase gap-2 justify-center transition-colors">
@@ -94,7 +94,7 @@ export const Video = (props: VideoProps) => {
           </div>
         </div>
 
-        <div className="gap-8 mt-20 grid grid-cols-2">
+        <div className="gap-8 mt-20 grid md:grid-cols-2">
           <a
             href=""
             className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors">

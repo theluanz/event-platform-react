@@ -33,7 +33,7 @@ export const Sidebar = (props: SidebarProps) => {
 
   return (
     <aside
-      className={`w-full sm:w-[348px] bg-gray-700 p-6 border-l border-gray-600 h-screen ${
+      className={`w-full md:w-[348px] bg-gray-700 p-6 border-l border-gray-600 h-screen ${
         props.classesCSS ? props.classesCSS : null
       }`}>
       <span className="font-bold text-2xl pb-6 mb-6 border-b border-gray-500 block">

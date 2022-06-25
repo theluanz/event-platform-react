@@ -1,0 +1,2 @@
+VITE_URI_GRAPHCMS = 'https://api-sa-east-1.graphcms.com/v2/codecodecode/master'
+VITE_TOKEN_GRAPHCMS = 'your token to mutation
