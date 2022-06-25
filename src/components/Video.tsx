@@ -4,6 +4,7 @@ import { gql, useQuery } from '@apollo/client';
 import '@vime/core/themes/default.css';
 import { Loading } from './Loading';
 import { useNavigate } from 'react-router-dom';
+import { isPast } from 'date-fns';
 
 interface VideoProps {
   lessonSlug: string | null;
@@ -16,6 +17,7 @@ const GET_LESSON_BY_SLUG_QUERY = gql`
       title
       description
       videoId
+      availableAt
       teacher {
         avatarURL
         bio
@@ -31,6 +33,7 @@ interface GetLessonBySlugResponse {
     title: string;
     description: string;
     videoId: string;
+    availableAt: Date;
     teacher: {
       avatarURL: string;
       bio: string;
@@ -41,13 +44,21 @@ interface GetLessonBySlugResponse {
 
 export const Video = (props: VideoProps) => {
   const navigate = useNavigate();
-  const { data, error } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG_QUERY, {
+  const { data } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG_QUERY, {
     variables: {
       slug: props.lessonSlug,
     },
   });
+
   if (!data) {
     return <Loading />;
+  }
+
+  const isLessonAvailable = isPast(new Date(data.lesson.availableAt));
+  console.log(isLessonAvailable);
+  if (data.lesson === null || !isLessonAvailable) {
+    navigate('/404');
+    return null;
   }
   return (
     <section className="flex-1">

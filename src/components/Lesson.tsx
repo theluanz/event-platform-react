@@ -1,7 +1,8 @@
 import { CheckCircle, Lock } from 'phosphor-react';
 import { isPast, format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { SyntheticEvent } from 'react';
 
 interface LessonProps {
   title: string;
@@ -13,14 +14,25 @@ interface LessonProps {
 export const Lesson = (props: LessonProps) => {
   const { slug } = useParams<{ slug: string }>();
   const isActiveLesson = slug === props.slug;
+  const navigate = useNavigate();
 
   const isLessonAvailable = isPast(props.availableAt);
   const availableDateFormatted = format(props.availableAt, "EEEE '•' d 'de' MMMM '•' k'h'mm", {
     locale: ptBR,
   });
 
+  function navigateToLesson(event: SyntheticEvent) {
+    event.preventDefault();
+    if (isLessonAvailable) {
+      navigate(`/evento/aula/${props.slug}`);
+    }
+  }
+
   return (
-    <Link to={`/evento/aula/${props.slug}`} className="group">
+    <Link
+      to={`/evento/aula/${props.slug}`}
+      onClick={navigateToLesson}
+      className={`group ${!isLessonAvailable ? 'cursor-not-allowed' : ''}`}>
       <span className="text-gray-300">{availableDateFormatted}</span>
 
       <div
